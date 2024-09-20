@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Restaurant Chooser</title>
+    <style>
+        /* CSS styles remain the same as before */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e0f2f1 0%, #80cbc4 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .banner {
+            background-color: #26a69a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        .banner img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 1rem;
+        }
+        .banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .banner p {
+            font-size: 1.2rem;
+        }
+        .restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .restaurant-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .restaurant-card:hover {
+            transform: translateY(-5px);
+        }
+        .restaurant-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .restaurant-info {
+            padding: 1rem;
+            text-align: center;
+        }
+        .restaurant-info h2 {
+            margin-top: 0;
+        }
+        .order-btn {
+            background-color: #26a69a;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .order-btn:hover {
+            background-color: #00897b;
+        }
+        .more-options {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .more-options-btn {
+            background-color: #ef5350;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease-in-out;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .more-options-btn:hover {
+            background-color: #e53935;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="banner fade-in">
+            <img src="https://assets.onecompiler.app/42sn9tht4/42spb9fn8/LOGO1.png" alt="Restaurant Chooser Logo">
+            <h1>Restaurant Chooser</h1>
+            <p>What would you like to have today?</p>
+        </div>
+        <div class="restaurant-grid" id="restaurantGrid">
+            <!-- Restaurant cards will be dynamically added here -->
+        </div>
+        <div class="more-options fade-in">
+            <a href="restaurants-2.html" class="more-options-btn">More Options →</a>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code remains the same as before
+        const restaurants = [
+            { name: 'KFC', logo: 'https://assets.onecompiler.app/42sn9tht4/42sn9vpe3/KFC.png', url: 'https://order.kfc.co.za/menu' },
+            { name: 'Chicken Licken', logo: 'https://assets.onecompiler.app/42sn9tht4/42sn9vpe3/OIP%20(4).jpg', url: 'https://chickenlicken.co.za/menu' },
+            { name: "Nando's", logo: 'https://assets.onecompiler.app/42sn9tht4/42sn9vpe3/NANDOS.png', url: 'https://www.nandos.co.za/eat/order/menu' },
+            { name: "Roman's Pizza", logo: 'https://assets.onecompiler.app/42sn9tht4/42sn9vpe3/Romans-Pizza-Logo2.jpg', url: 'https://romanspizza.co.za/menu/specials/small-sava-flava-330ml-lunch' },
+            { name: "McDonald's", logo: 'https://assets.onecompiler.app/42sn9tht4/42sn9vpe3/OIP%20(13).jpg', url: 'https://www.mcdeliverysa.co.za/za/home.html' },
+            { name: 'Steers', logo: 'https://assets.onecompiler.app/42sn9tht4/42sn9vpe3/download.jpg', url: 'https://steers.co.za/menu/real-burgers/' },
+        ];
+
+        function createRestaurantCard(restaurant, index) {
+            const card = document.createElement('div');
+            card.className = 'restaurant-card fade-in';
+            card.style.animationDelay = `${index * 0.1}s`;
+            
+            card.innerHTML = `
+                <img src="${restaurant.logo}" alt="${restaurant.name} Logo">
+                <div class="restaurant-info">
+                    <h2>${restaurant.name}</h2>
+                    <a href="${restaurant.url}" target="_blank" rel="noopener noreferrer">
+                        <button class="order-btn">Order Now</button>
+                    </a>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        function populateRestaurants() {
+            const grid = document.getElementById('restaurantGrid');
+            restaurants.forEach((restaurant, index) => {
+                const card = createRestaurantCard(restaurant, index);
+                grid.appendChild(card);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', populateRestaurants);
+    </script>
+</body>
+</html>

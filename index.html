@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Chooser</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: url("https://assets.onecompiler.app/42sn9tht4/42spd8ejp/R%20(2).jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100%;
+            color: #FFFFFF;
+        }
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #FFFFFF;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #4CAF50;
+        }
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 30px;
+        }
+        .intro-text h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .author-text {
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        .continue-button {
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .continue-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+        .decorative-lines {
+            margin-top: 40px;
+        }
+        .star {
+            color: #FFD700;
+            font-size: 30px;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <nav class="navbar">
+            <a href="#">About</a>
+            <a href="#">Decision</a>
+            <a href="#">Restaurants</a>
+            <a href="#">Resources</a>
+            <a href="#">Help/FAQ</a>
+        </nav>
+        <main class="main-content">
+            <img src="https://assets.onecompiler.app/42sn9tht4/42spb9fn8/LOGO1.png" alt="Restaurant Chooser Logo" class="logo">
+            <div class="intro-text">
+                <h1>CHOOSING A RESTAURANT MADE EASIER</h1>
+                <p class="author-text">by Sisanda Shwala and Sthabile Shwala</p>
+                <a href="login.html">
+                    <button class="continue-button">Get Started</button>
+                </a>
+            </div>
+            <div class="decorative-lines">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

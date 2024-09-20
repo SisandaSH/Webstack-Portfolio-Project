@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Restaurant Chooser - Page 2</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e0f2f1 0%, #80cbc4 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .banner {
+            background-color: #26a69a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        .banner img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 1rem;
+        }
+        .banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .banner p {
+            font-size: 1.2rem;
+        }
+        .restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .restaurant-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .restaurant-card:hover {
+            transform: translateY(-5px);
+        }
+        .restaurant-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .restaurant-info {
+            padding: 1rem;
+            text-align: center;
+        }
+        .restaurant-info h2 {
+            margin-top: 0;
+        }
+        .order-btn {
+            background-color: #26a69a;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .order-btn:hover {
+            background-color: #00897b;
+        }
+        .navigation {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        .nav-btn {
+            background-color: #ef5350;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease-in-out;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            margin: 0 0.5rem;
+        }
+        .nav-btn:hover {
+            background-color: #e53935;
+        }
+        .nav-btn img {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="banner fade-in">
+            <img src="/api/placeholder/100/100" alt="Restaurant Chooser Logo">
+            <h1>Restaurant Chooser</h1>
+            <p>What would you like to have today?</p>
+        </div>
+        <div class="restaurant-grid" id="restaurantGrid">
+            <!-- Restaurant cards will be dynamically added here -->
+        </div>
+        <div class="navigation fade-in">
+            <a href="index.html" class="nav-btn">
+                <img src="https://assets.onecompiler.app/42sn9tht4/42spjqzby/R%20(6).png" alt="Back">
+                Back
+            </a>
+            <a href="restaurants.html" class="nav-btn">
+                Next
+                <img src="https://assets.onecompiler.app/42sn9tht4/42spdxmkp/g6zp3ukd.png" alt="Next">
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const restaurants = [
+            { name: 'Roccomamas', logo: 'https://assets.onecompiler.app/42sn9tht4/42sp8dtyw/R.jpg', url: 'https://roccomamas.com/za/menu' },
+            { name: 'Hungry Lion', logo: 'https://assets.onecompiler.app/42sn9tht4/42sp8wgdf/OIP%20(8).jpg', url: 'https://www.hungrylion.co.za/menu-for-one/' },
+            { name: 'Mugg & Bean', logo: 'https://assets.onecompiler.app/42sn9tht4/42sp8wgdf/OIP%20(5).jpg', url: 'https://app.muggandbean.co.za/' },
+            { name: 'Panarottis', logo: 'https://assets.onecompiler.app/42sn9tht4/42sp8wgdf/OIP%20(6).jpg', url: 'https://www.panarottis.com/za/menu/' },
+            { name: 'Fishaways', logo: 'https://assets.onecompiler.app/42sn9tht4/42sp8wgdf/OIP%20(7).jpg', url: 'https://fishaways.co.za/menu/' },
+            { name: 'Ocean Basket', logo: 'https://assets.onecompiler.app/42sn9tht4/42sp8wgdf/6278.png', url: 'https://www.oceanbasket.com/menu/' },
+        ];
+
+        function createRestaurantCard(restaurant, index) {
+            const card = document.createElement('div');
+            card.className = 'restaurant-card fade-in';
+            card.style.animationDelay = `${index * 0.1}s`;
+            
+            card.innerHTML = `
+                <img src="${restaurant.logo}" alt="${restaurant.name} Logo">
+                <div class="restaurant-info">
+                    <h2>${restaurant.name}</h2>
+                    <a href="${restaurant.url}" target="_blank" rel="noopener noreferrer" class="order-btn">
+                        Order Now
+                    </a>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        function populateRestaurants() {
+            const grid = document.getElementById('restaurantGrid');
+            restaurants.forEach((restaurant, index) => {
+                const card = createRestaurantCard(restaurant, index);
+                grid.appendChild(card);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', populateRestaurants);
+    </script>
+</body>
+</html>
