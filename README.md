@@ -1,7 +1,9 @@
 Restaurant Chooser
 A Quick and Easy Way to Find Your Next Meal
 
+
 Overview:
+
 Restaurant Chooser is a web application designed to simplify the process of finding the perfect dining spot. With a vast database of popular food franchises and restaurants, users can easily browse and discover new options.
 
 Key Features:
