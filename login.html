@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Chooser - Login</title>
+    <title>Restaurant Chooser - Login/Signup</title>
     <style>
         body, html {
             margin: 0;
@@ -43,14 +43,14 @@
             align-items: center;
             padding: 80px 20px;
         }
-        .login-form {
+        .form-container {
             background-color: rgba(255, 255, 255, 0.9);
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
             width: 300px;
         }
-        .login-form h2 {
+        .form-container h2 {
             margin-top: 0;
             color: #008000;
             text-align: center;
@@ -71,7 +71,7 @@
             border-radius: 5px;
             font-size: 16px;
         }
-        .login-button {
+        .button {
             background-color: #4CAF50;
             color: white;
             padding: 12px 20px;
@@ -82,20 +82,30 @@
             font-size: 16px;
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
-        .login-button:hover {
+        .button:hover {
             background-color: #45a049;
             transform: scale(1.05);
         }
-        .signup-link {
+        .toggle-link {
             text-align: center;
             margin-top: 15px;
         }
-        .signup-link a {
+        .toggle-link a {
             color: #008000;
             text-decoration: none;
+            cursor: pointer;
         }
-        .signup-link a:hover {
+        .toggle-link a:hover {
             text-decoration: underline;
+        }
+        #success-message {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -105,26 +115,90 @@
             <h1>RESTAURANT CHOOSER</h1>
         </header>
         <main class="content">
-            <div class="login-form">
+            <div class="form-container" id="login-form">
                 <h2>Welcome Back</h2>
-                <form action="/submit-form" method="post">
+                <form action="/submit-login" method="post">
                     <div class="input-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="login-email">Email:</label>
+                        <input type="email" id="login-email" name="email" required>
                     </div>
                     <div class="input-group">
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required>
+                        <label for="login-password">Password:</label>
+                        <input type="password" id="login-password" name="password" required>
                     </div>
                     <a href="restaurants.html">
-                        <button type="submit" class="login-button">Log In</button>
+                        <button type="submit" class="button">Log In</button>
                     </a>
                 </form>
-                <div class="signup-link">
-                    <p>Don't have an account? <a href="#">Sign Up</a></p>
+                <div class="toggle-link">
+                    <p>Don't have an account? <a onclick="toggleForms()">Sign Up</a></p>
                 </div>
             </div>
+            <div class="form-container" id="signup-form" style="display: none;">
+                <h2>Create Account</h2>
+                <form onsubmit="return validateForm()">
+                    <div class="input-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="surname">Surname:</label>
+                        <input type="text" id="surname" name="surname" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signup-email">Email:</label>
+                        <input type="email" id="signup-email" name="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signup-password">Password:</label>
+                        <input type="password" id="signup-password" name="password" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="confirm-password">Retype Password:</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                    </div>
+                    <button type="submit" class="button">Done</button>
+                </form>
+                <div class="toggle-link">
+                    <p>Already have an account? <a onclick="toggleForms()">Log In</a></p>
+                </div>
+            </div>
+            <div id="success-message">Account created successfully!</div>
         </main>
     </div>
+    <script>
+        function toggleForms() {
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            const successMessage = document.getElementById('success-message');
+
+            loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
+            signupForm.style.display = signupForm.style.display === 'none' ? 'block' : 'none';
+            successMessage.style.display = 'none';
+        }
+
+        function validateForm() {
+            const password = document.getElementById('signup-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return false;
+            }
+
+            const successMessage = document.getElementById('success-message');
+            successMessage.style.display = 'block';
+            
+            setTimeout(() => {
+                window.location.href = 'restaurants.html';
+            }, 2000);
+
+            return false; // Prevent form submission
+        }
+    </script>
 </body>
 </html>
