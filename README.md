@@ -15,5 +15,6 @@ This web application was developed by Sisanda Shwala and Sthabile Shwala.
 
 Getting Started:
 
-Explore Restaurants: Browse through the list of popular food franchises and restaurants.
+Explore Restaurants: Browse through the list of popular food franchises and restaurants 
+https://the-restaurant-chooser-webstack-portfolio-project.vercel.app/index.html.
 View Menus: Click on a restaurant to access its menu.
