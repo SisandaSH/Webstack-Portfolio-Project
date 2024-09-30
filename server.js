@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://sisandashwala4:eD8ZqlgO21GltVQD@cluster0.3jjjd.mongodb.net/yourDatabaseName', {
+mongoose.connect('mongodb+srv://sisandashwala4:eD8ZqlgO21GltVQD@cluster0.3jjjd.mongodb.net/User', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
