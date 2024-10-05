@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modern Restaurant Chooser - Page 2</title>
-    <link rel="icon" href="https://assets.onecompiler.app/42sn9tht4/42tjec9ku/favicon-32x32.png" type="image/x-icon">
     <style>
         body, html {
             margin: 0;
@@ -114,6 +113,42 @@
         .fade-in {
             animation: fadeIn 0.5s ease-out forwards;
         }
+        /* Media Queries */
+    
+    /* For mobile devices */
+    @media screen and (max-width: 1101px) {
+      .intro-text h1 {
+          font-size: 2em; /* Smaller size for mobile */
+      }
+      .continue-button {
+          padding: 12px 25px; /* Adjust button size */
+          font-size: 1em; /* Smaller button text */
+      }
+      .navbar a {
+          margin: 0 10px; /* Adjust navbar link spacing */
+      }
+      .main-content {
+          padding-top: 60px; /* Adjust padding for smaller screens */
+      }
+    }
+
+    /* For tablets and iPad Mini */
+    @media screen and (max-width: 768px) {
+      .intro-text h1 {
+          font-size: 2.2em; /* Size for tablets */
+      }
+      .continue-button {
+          padding: 14px 28px; /* Adjust button size */
+          font-size: 1.05em; /* Slightly smaller text */
+      }
+      .navbar a {
+          margin-right: 8px; /* Adjust navbar link spacing */
+      }
+      .main-content {
+          padding-top: 70px; /* Adjust padding for tablets */
+      }
+    }
+
     </style>
 </head>
 <body>
