@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Restaurant Chooser</title>
-    <link rel="icon" href="https://assets.onecompiler.app/42sn9tht4/42tjec9ku/favicon-32x32.png" type="image/x-icon">
+    <title>Modern Restaurant Chooser</title>
     <style>
         /* CSS styles remain the same as before */
         body, html {
@@ -105,6 +104,42 @@
         .fade-in {
             animation: fadeIn 0.5s ease-out forwards;
         }
+        /* Media Queries */
+    
+    /* For mobile devices */
+    @media screen and (max-width: 1101px) {
+      .intro-text h1 {
+          font-size: 2em; /* Smaller size for mobile */
+      }
+      .continue-button {
+          padding: 12px 25px; /* Adjust button size */
+          font-size: 1em; /* Smaller button text */
+      }
+      .navbar a {
+          margin: 0 10px; /* Adjust navbar link spacing */
+      }
+      .main-content {
+          padding-top: 60px; /* Adjust padding for smaller screens */
+      }
+    }
+
+    /* For tablets and iPad Mini */
+    @media screen and (max-width: 768px) {
+      .intro-text h1 {
+          font-size: 2.2em; /* Size for tablets */
+      }
+      .continue-button {
+          padding: 14px 28px; /* Adjust button size */
+          font-size: 1.05em; /* Slightly smaller text */
+      }
+      .navbar a {
+          margin-right: 8px; /* Adjust navbar link spacing */
+      }
+      .main-content {
+          padding-top: 70px; /* Adjust padding for tablets */
+      }
+    }
+
     </style>
 </head>
 <body>
@@ -125,11 +160,11 @@
     <script>
         // JavaScript code remains the same as before
         const restaurants = [
-            { name: 'KFC', logo: 'https://assets.onecompiler.app/42sn9tht4/42sn9vpe3/KFC.png', url: 'https://order.kfc.co.za/menu' },
+            { name: 'KFC', logo: 'https://assets.onecompiler.app/42sn9tht4/42tnkdxtx/dhdjgduqdqwidh.png', url: 'https://order.kfc.co.za/menu' },
             { name: 'Chicken Licken', logo: 'https://assets.onecompiler.app/42sn9tht4/42sn9vpe3/OIP%20(4).jpg', url: 'https://chickenlicken.co.za/menu' },
             { name: "Nando's", logo: 'https://assets.onecompiler.app/42sn9tht4/42sn9vpe3/NANDOS.png', url: 'https://www.nandos.co.za/eat/order/menu' },
-            { name: "Roman's Pizza", logo: 'https://assets.onecompiler.app/42sn9tht4/42sn9vpe3/Romans-Pizza-Logo2.jpg', url: 'https://romanspizza.co.za/menu/specials/small-sava-flava-330ml-lunch' },
-            { name: "McDonald's", logo: 'https://assets.onecompiler.app/42sn9tht4/42sn9vpe3/OIP%20(13).jpg', url: 'https://www.mcdeliverysa.co.za/za/home.html' },
+            { name: "Roman's Pizza", logo: 'https://assets.onecompiler.app/42sn9tht4/42tnhwaxp/romans-pizza-zambia-logo%20(1).jpeg', url: 'https://romanspizza.co.za/menu/specials/small-sava-flava-330ml-lunch' },
+            { name: "McDonald's", logo: 'https://assets.onecompiler.app/42sn9tht4/42tnn88wp/OIP%20(13).jpg', url: 'https://www.mcdeliverysa.co.za/za/home.html' },
             { name: 'Steers', logo: 'https://assets.onecompiler.app/42sn9tht4/42sn9vpe3/download.jpg', url: 'https://steers.co.za/menu/real-burgers/' },
         ];
 
